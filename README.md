@@ -49,7 +49,7 @@ la commande lors du premier démarrage, ou vous devrez indiquer le mot de passe 
 donnée. Pensez à modifier password par le mot de passe choisit.   
 
 ```sh
-docker run --name cdatabase -e POSTGRES_PASSWORD=password -d -p 5432:5432  --mount type=bind,src=/root/app/database/data,dst=/var/lib/postgresql 
+docker run --name cdatabase -e POSTGRES_PASSWORD=password -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database
 ```
 
 Et voici donc la commande de démarrage pour les lancements à partir du deuxième lancement. Le mot de passe     
@@ -57,7 +57,7 @@ est ici repris depuis le dossier data, qui contient à la fois la base de donné
 base de donnée.   
 
 ```sh
-docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=/root/app/database/data,dst=/var/lib/postgresql 
+docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
 ```
 
 Utilisateur base de donnée: tora    
