@@ -36,24 +36,24 @@ Placez vous soit dans un serveur accessible en ssh, soit sur un ordinateur de bu
 docker build -t database  .
 ```
 
-2. Créer un répertoire "data" qui sera utilisé par la commande docker.    
-Concrétement, l'on va demander à docker de stocker tout le contenu de la base de donnée dans ce répertoire,   
-et non dans un volume, afin de pouvoir facilement copier la base de donnée dans le futur.   
+2. Créez un répertoire "data" qui sera utilisé par la commande docker. Concrétement, l'on va demander à     
+docker de stocker tout le contenu de la base de donnée dans ce répertoire, et non dans un volume, afin de      
+pouvoir facilement copier la base de donnée dans le futur.    
 
 ```sh
 mkdir data
 ```
 
-3.  Démarrage d'un container "cdatabase" utilisant l'image "database" avec un volume nommé "data".     
-Ceci est la commande lors du premier démarrage, ou vous devrez indiquer le mot de passe à choisir pour la base de donnée.   
-Pensez à modifier password par le mot de passe choisit.   
+3.  Démarrage d'un container "cdatabase" utilisant l'image "database" avec un volume nommé "data". Ceci est    
+la commande lors du premier démarrage, ou vous devrez indiquer le mot de passe à choisir pour la base de     
+donnée. Pensez à modifier password par le mot de passe choisit.   
 
 ```sh
 docker run --name cdatabase -e POSTGRES_PASSWORD=password -d -p 5432:5432  --mount type=bind,src=/root/app/database/data,dst=/var/lib/postgresql 
 ```
 
-Et voici donc la commande de démarrage pour les lancements à partir du deuxième lancement.    
-Le mot de passe est ici repris depuis le dossier data, qui contient à la fois la base de donnée, et le mot de passe de la     
+Et voici donc la commande de démarrage pour les lancements à partir du deuxième lancement. Le mot de passe     
+est ici repris depuis le dossier data, qui contient à la fois la base de donnée, et le mot de passe de la        
 base de donnée.   
 
 ```sh
