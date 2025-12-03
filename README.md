@@ -44,9 +44,10 @@ pouvoir facilement copier la base de donnée dans le futur.
 mkdir data
 ```
 
-3.  Démarrage d'un container "cdatabase" utilisant l'image "database" avec un volume nommé "data". Ceci est    
-la commande lors du premier démarrage, ou vous devrez indiquer le mot de passe à choisir pour la base de     
-donnée. Pensez à modifier password par le mot de passe choisit.   
+3.  Démarrage d'un container "cdatabase" utilisant l'image "database" qui stockera en temps réel la base de     
+donnée dans le dossier "data" crée à l'étape précédente. Ceci est la commande lors du premier démarrage, ou vous     
+devrez indiquer le mot de passe à choisir pour la base de donnée. Pensez à modifier password par le mot de passe     
+choisit.   
 
 ```sh
 docker run --name cdatabase -e POSTGRES_PASSWORD=password -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database
