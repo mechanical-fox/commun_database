@@ -9,8 +9,8 @@ Server).
 Le serveur PostgreSQL actuellement proposée fonctionne sans cryptage SSL lors des communications réseaux.    
 Dans le cas d'une politique de sécurité forte, il s'agirait d'une premier point à considérer.    
 
-Pour le reste, le déploiement proposé permet de gérer la gestion du mot de passe en serveur, dans une 
-variable POSTGRES_PASSWORD, ce qui permet de sécuriser le mot de passe utilisé.    
+Pour le reste, le déploiement proposé permet de gérer la gestion du mot de passe en serveur, en indiquant   
+celui-ci lors du 1er démarrage de la base de donnée.    
 
 # FAQ Erreurs fréquentes   
 
