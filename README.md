@@ -7,7 +7,7 @@ accessible en ssh. Pour disposer d'un tel serveur, l'on passera généralement p
 VPS (Virtual Private Server).     
 
 Le serveur PostgreSQL actuellement proposée fonctionne sans cryptage SSL lors des communications     
-réseaux. Dans le cas d'une politique de sécurité forte, il s'agirait d'une premier point à     
+réseaux. Dans le cas d'une politique de sécurité forte, il s'agirait d'un premier point à     
 considérer.    
 
 Pour le reste, le déploiement proposé permet de gérer la gestion du mot de passe en serveur, en     
