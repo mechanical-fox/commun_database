@@ -6,7 +6,7 @@ Ce projet a pour but de permettre de lancer une base de donnée PostgreSQL, depu
 accessible en ssh. Pour disposer d'un tel serveur, l'on passera généralement par un hébergeur
 VPS (Virtual Private Server).
 
-Le serveur PostgreSQL actuellement proposée fonctionne sans cryptage SSL lors des communications
+Le serveur PostgreSQL actuellement proposé fonctionne sans cryptage SSL lors des communications
 réseaux. Dans le cas d'une politique de sécurité forte, il s'agirait d'un premier point à 
 considérer. Pour le reste, au niveau sécurité, le déploiement proposé permet de gérer la gestion 
 du mot de passe en serveur, en indiquant celui-ci lors du 1er démarrage de la base de donnée. Le
