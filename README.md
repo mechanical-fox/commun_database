@@ -21,13 +21,17 @@ ne pourra ainsi pas être obtenu, même en disposant du code source du programme
 Pour démarrer la base de donnée. Connectez vous à un serveur accessible en ssh. Vous pouvez aussi
 réaliser les commandes sur votre ordinateur habituel, afin de tester le lancement de la base de donnée.
 
-1. Création de l'image docker "database".   
+**Etape 1:**
+
+Création de l'image docker "database".   
 
 ```sh
 docker build -t database  .
 ```
 
-2. Créez un répertoire "data" qui sera utilisé par docker. Je vais montrer comment au démarrage
+**Etape 2:**
+
+Créez un répertoire "data" qui sera utilisé par docker. Je vais montrer comment au démarrage
 synchroniser la base de donnée avec un répertoire, et non un volume. Et cela car un dossier
 est facile à copier, pour réaliser des sauvegardes.
 
@@ -35,18 +39,21 @@ est facile à copier, pour réaliser des sauvegardes.
 mkdir data
 ```
 
-3.  Démarrage d'un container "cdatabase" utilisant l'image "database" qui stockera en temps réel la
-base de donnée dans le dossier "data" créé à l'étape précédente. Ceci est la commande lors du premier 
-démarrage, où vous devrez indiquer le mot de passe à choisir pour la base de donnée. Pensez à modifier
-password par le mot de passe choisit.
+**Etape 3:**
+
+Démarrage d'un container "cdatabase" utilisant l'image "database" qui stockera en temps réel la
+base de donnée dans le dossier "data" créé à l'étape précédente.
+
+S'il s'agit d'un premier démarrage, vous devez indiquer le mot de passe de la base de donnée avec la
+commande suivante. Pensez à modifier password par le mot de passe choisit.
 
 ```sh
 docker run --name cdatabase -e POSTGRES_PASSWORD=password -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database
 ```
 
-Et voici donc la commande de démarrage pour les lancements à partir du deuxième lancement. Le mot de 
-passe est ici repris depuis le dossier data, qui contient à la fois la base de donnée, et le mot de
-passe de la base de donnée.
+S'il s'agit d'une reprise de base de donné, vous ne devez plus indiquer le mot de passe de la base de 
+donnée. Et l'on utilise donc la commande suivante.
+
 
 ```sh
 docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
@@ -59,10 +66,10 @@ docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/v
 # Commandes docker
 
 Le déploiement indiqué, permet de démarrer la base de donnée en arrière-plan. Et les logs ne sont alors
-pas visibles. Il n'est pas non plus possible de couper la base de donnée avec l'habituel Ctrl + C.
+pas visibles. Il n'est pas non plus possible de stopper la base de donnée avec l'habituel Ctrl + C.
 
-L'idée est qu'en déploiement il va s'agir du comportement voulu. Et l'on peut donc gérer la base de donnée
-avec les commandes dockers habituels. Voici les commandes basiques.
+L'idée est qu'en déploiement il va s'agir du comportement voulu. Et l'on va plutôt gérer la base de donnée
+avec les commandes dockers habituelles. Voici les commandes docker de base.
 
 Afficher les logs du container cdatabase
 
