@@ -6,6 +6,9 @@ Ce projet a pour but de permettre de lancer une base de donnée PostgreSQL, depu
 accessible en ssh. Pour disposer d'un tel serveur, l'on passera généralement par un hébergeur
 VPS (Virtual Private Server).
 
+Un deuxième but, est de fournir des scripts python ou bash à utiliser en production. Par exemple
+le script script/restart.sh permet de redémarrer les containers docker arrétés.
+
 Le serveur PostgreSQL actuellement proposé fonctionne sans cryptage SSL lors des communications
 réseaux. Dans le cas d'une politique de sécurité forte, il s'agirait d'un premier point à 
 considérer. Pour le reste, au niveau sécurité, le déploiement proposé permet de gérer la gestion 
@@ -94,6 +97,18 @@ Lister les containers docker
 docker ps --all
 ```
 
+# Scripts
+
+## restart.sh
+
+Un script qui redemarre tous les containers docker arrétés. Ce script écrit dans un fichier log.txt
+le redémarrage, ainsi que la date et l'heure, si un conteneur docker arrété a été trouvé.
+
+L'idée de ce script est bien sur de pouvoir redémarrer des bases de données arrétées. Mais aussi
+de relancer des API qui ont subit des attaques informatiques diverses. Car cela est déjà arrivé 2-3 
+fois à mes API.
+
+Ce script peut être lancé à intervalle régulier avec un CRON.
 
 # FAQ Erreurs fréquentes
 
