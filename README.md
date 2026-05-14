@@ -16,6 +16,7 @@ du mot de passe en serveur, en indiquant celui-ci lors du 1er démarrage de la b
 mot de passe ne pourra ainsi pas être obtenu, même en disposant du code source du programme.
 
 
+
 # Déploiement 
 
 Pour démarrer la base de donnée. Connectez-vous à un serveur accessible en ssh. Vous pouvez aussi
@@ -109,6 +110,20 @@ de relancer des API qui ont subit des attaques informatiques diverses. Car cela 
 fois à mes API.
 
 Ce script peut être lancé à intervalle régulier avec un CRON.
+
+
+# Changement de mot de passe.
+
+Parfois il vous sera nécessaire de changer le mot de passe pour acéder à la base de donnée.
+Les cas d'utilisation vont de récupérer une base de donnée localhost mais changer son mot de passe 
+par un mot de passe plus sécurisé, à programmer un changement de mot de passe tous les 3 mois.
+
+Changer le mot de passe d'un utilisateur sous PostgreSQL se fait avec la commande suivante.
+
+```sh
+ALTER ROLE tora WITH PASSWORD 'hu8jmn3'
+```
+
 
 # FAQ Erreurs fréquentes
 
