@@ -144,7 +144,7 @@ docker ps --all
 
 # Changement de mot de passe
 
-Parfois il vous sera nécessaire de changer le mot de passe pour acéder à la base de donnée.
+Parfois il vous sera nécessaire de changer le mot de passe pour accéder à la base de donnée.
 Les cas d'utilisation vont de récupérer une base de donnée localhost mais changer son mot de passe 
 par un mot de passe plus sécurisé, à programmer un changement de mot de passe tous les 3 mois.
 
