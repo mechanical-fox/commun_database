@@ -50,9 +50,9 @@ docker run --name cdatabase -d -p 5433:5432  --mount type=bind,src=./data,dst=/v
 ```
 
 
-Pour les deux bases de données sauvegardés, les informations sont les suivantes. Il est à noter que
+Pour les deux bases de données sauvegardées, les informations sont les suivantes. Il est à noter que
 le mot de passe de ces bases au départ est bien password. On est ici sur des sites de type portfolio,
-pas d'informations sensibles.
+donc il n'y a pas d'informations sensibles.
 
 **Utilisateur base de donnée:** tora\
 **Mot de passe base de donnée:** password\
