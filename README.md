@@ -18,7 +18,7 @@ programmeur souhaitant évaluer mon niveau de développeur, dans le cadre d'un p
 ait quelque chose de concret à executer en localhost, puis à tester.
 
 Les bases de données sont sauvegardées à **backup/erdline_database.zip** et **backup/mynrista_database.zip**.
-Afin de pouvoir être démarrées pour ce projet, vous allez devoir:
+Si vous souhaitez démarrer ces bases de données, vous pouvez suivre les étapes suivantes.
 
 **Étape 1:**
 
