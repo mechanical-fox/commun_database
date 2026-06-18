@@ -141,19 +141,6 @@ Lister les containers docker
 docker ps --all
 ```
 
-# Scripts
-
-## restart.sh
-
-Un script qui redemarre tous les containers docker arrétés. Ce script écrit dans un fichier log.txt
-le redémarrage, ainsi que la date et l'heure, si un conteneur docker arrété a été trouvé.
-
-L'idée de ce script est bien sur de pouvoir redémarrer des bases de données arrétées. Mais aussi
-de relancer des API qui ont subit des attaques informatiques diverses. Car cela est déjà arrivé 2-3 
-fois à mes API.
-
-Ce script peut être lancé à intervalle régulier avec un CRON.
-
 
 # Changement de mot de passe
 
@@ -167,19 +154,5 @@ Changer un mot de passe, n'est possible que si vous êtes connecté en base de d
 ```sh
 ALTER ROLE tora WITH PASSWORD 'hu8jmn3'
 ```
-
-
-# FAQ Erreurs fréquentes
-
-
-## Mot de passe erroné
-
-À chaque fois que vous relancez le container docker vous utiliserez un répertoire appelé "data"
-qui contient le contenu de la base de donnée. Ce répertoire stocke aussi un mot de passe de la
-base de donnée, ce qui veut dire qu'une fois la première exécution réalisée, il vous sera 
-impossible de modifier le mot de passe de la base de donnée.
-
-Il n'est pas possible d'afficher le mot de passe de la base de donnée depuis le serveur.
-Veuillez donc conserver le mot de passe de la base de donnée après initialisation.
 
 
