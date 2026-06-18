@@ -18,32 +18,18 @@ programmeur souhaitant évaluer mon niveau de développeur, dans le cadre d'un p
 ait quelque chose de concret à executer en localhost, puis à tester.
 
 Les bases de données sont sauvegardées à **backup/erdline_database.zip** et **backup/mynrista_database.zip**.
-Si vous souhaitez démarrer ces bases de données, vous pouvez suivre les étapes suivantes.
+Si vous souhaitez démarrer ces bases de données, vous allez devoir décompresser le fichier choisit, 
+et renommer le fichier décompressé en "data".
 
-**Étape 1:**
-
-Décompresser le fichier backup choisit.
-
-**Étape 2:**
-
-Renommer le fichier décompressé en "data". Car les commandes que je passe après vont utiliser un 
-répertoire appellé "data".
-
-**Étape 3:**
-
-Utiliser une des commandes suivantes pour déployer via docker.
-
-Pour la base de donnée erdline, déployer celle-ci en port 5432. Celui-ci correspond au port auquel 
-l'API erdline se connectera.
-
+Ensuite si vous souhaitez déployer la base de donnée erdline, celle-ci sera à déployer en port 5432.
+Port utilisé par l'API Erdline, pour se connecter.
 
 ```sh
 docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
 ```
 
-
-Pour la base de donnée mynrista, déployer celle-ci en port 5433. Celui-ci correspond au port auquel 
-l'API mynrista se connectera.
+Si vous souhaitez plutôt déployer la base de donnée mynrista, celle-ci sera à déployer en port 5433.
+Port utilisé par l'API Erdline, pour se connecter.
 
 ```sh
 docker run --name cdatabase -d -p 5433:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
