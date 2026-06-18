@@ -4,29 +4,34 @@
 
 Ce projet a pour but de permettre de lancer une base de donnée PostgreSQL, depuis un serveur
 accessible en ssh. Pour disposer d'un tel serveur, l'on passera généralement par un hébergeur
-VPS (Virtual Private Server).
+VPS (Virtual Private Server). Ce projet fourni également les bases de données des sites mynrista, 
+et erdline, qui sont des projets réalisés sur mon temps libre, que j'utilise en portfolio. Cela 
+sont des sites portfolios, donc il n'y a pas d'informations sensibles.
 
-Ce projet fourni également les bases de données des sites mynrista, et erdline, qui sont des 
-projets réalisés sur mon temps libre, que j'utilise en portfolio. Cela sont des sites portfolios,
-donc il n'y a pas d'informations sensibles.
-
-Enfin, ce projet fournit également des scripts bash à utiliser en production. Par exemple le script
+De plus, ce projet fournit également des scripts bash à utiliser en production. Par exemple le script
 script/restart.sh permet de redémarrer les containers docker arrétés.
 
 # Backup
 
-Ce projet contient les bases de données de mes sites erdline, et mynrista. Et cela afin que un
-lead programmeur souhaitant évaluer mon niveau de développeur, dans le cadre d'un processus de 
-recrutement, ait quelque chose de concret à executer en localhost puis tester.
+Ce projet contient les bases de données de mes sites erdline, et mynrista. Et cela afin qu'un
+programmeur souhaitant évaluer mon niveau de développeur, dans le cadre d'un processus de recrutement,
+ait quelque chose de concret à executer en localhost, puis à tester.
 
-Les bases de données sont sauvegardés à **backup/erdline_database.zip** et **backup/mynrista_database.zip".
-Afin de pouvoir être démarrés pour ce projet, vous allez devoir:
+Les bases de données sont sauvegardées à **backup/erdline_database.zip** et **backup/mynrista_database.zip**.
+Afin de pouvoir être démarrées pour ce projet, vous allez devoir:
 
-1- Décompresser le fichier backup choisit.
+**Étape 1:**
 
-2- Renommer le fichier décompressé en "data". Car les commandes que je passe après vont utiliser un répertoire appellé "data".
+Décompresser le fichier backup choisit.
 
-3- Utiliser une des commandes suivantes pour déployer via docker.
+**Étape 2:**
+
+Renommer le fichier décompressé en "data". Car les commandes que je passe après vont utiliser un 
+répertoire appellé "data".
+
+**Étape 3:**
+
+Utiliser une des commandes suivantes pour déployer via docker.
 
 Pour la base de donnée erdline, déployer celle-ci en port 5432. Celui-ci correspond au port auquel 
 l'API erdline se connectera.
@@ -47,13 +52,11 @@ docker run --name cdatabase -d -p 5433:5432  --mount type=bind,src=./data,dst=/v
 
 Pour les deux bases de données sauvegardés, les informations sont les suivantes. Il est à noter que
 le mot de passe de ces bases au départ est bien password. On est ici sur des sites de type portfolio,
-pas d'informations sensibles. Et si vous souhaitez modifier le mot de passe par un mot de passe plus
-sécurisé, j'ai indiqué dans le chapitre "Changement de mot de passe" comment vous pouvez réaliser cela.
+pas d'informations sensibles.
 
-
-**Utilisateur base de donnée:** tora    
-**Mot de passe base de donnée:** password
-**Base de donnée:** default   
+**Utilisateur base de donnée:** tora\
+**Mot de passe base de donnée:** password\
+**Base de donnée:** default
 
 
 # Déploiement 
@@ -100,9 +103,9 @@ de donnée. Et l'on utilise donc la commande suivante.
 docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
 ```
 
-**Utilisateur base de donnée:** tora    
-**Mot de passe base de donnée:** -- Mot de passe choisit --    
-**Base de donnée:** default   
+**Utilisateur base de donnée:** tora\
+**Mot de passe base de donnée:** -- Mot de passe choisit --\ 
+**Base de donnée:** default
 
 
 # Commandes docker
