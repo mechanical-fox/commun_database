@@ -103,8 +103,8 @@ de donnée. Et l'on utilise donc la commande suivante.
 docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
 ```
 
-**Utilisateur base de donnée:** tora\
-**Mot de passe base de donnée:** -- Mot de passe choisit --\ 
+**Utilisateur base de donnée:** tora \
+**Mot de passe base de donnée:** -- Mot de passe choisit -- \ 
 **Base de donnée:** default
 
 
