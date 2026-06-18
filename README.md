@@ -104,7 +104,7 @@ docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/v
 ```
 
 **Utilisateur base de donnée:** tora \
-**Mot de passe base de donnée:** -- Mot de passe choisit -- \ 
+**Mot de passe base de donnée:** -- Mot de passe choisit -- \
 **Base de donnée:** default
 
 
