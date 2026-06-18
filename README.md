@@ -25,6 +25,7 @@ Ensuite si vous souhaitez déployer la base de donnée erdline, celle-ci sera à
 Port utilisé par l'API Erdline, pour se connecter.
 
 ```sh
+docker build -t database  .
 docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
 ```
 
@@ -32,6 +33,7 @@ Si vous souhaitez plutôt déployer la base de donnée mynrista, celle-ci sera �
 Port utilisé par l'API Mynrista, pour se connecter.
 
 ```sh
+docker build -t database  .
 docker run --name cdatabase -d -p 5433:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
 ```
 
