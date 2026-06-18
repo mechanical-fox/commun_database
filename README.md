@@ -6,22 +6,61 @@ Ce projet a pour but de permettre de lancer une base de donnée PostgreSQL, depu
 accessible en ssh. Pour disposer d'un tel serveur, l'on passera généralement par un hébergeur
 VPS (Virtual Private Server).
 
-Un deuxième but, est de fournir des scripts python ou bash à utiliser en production. Par exemple
-le script script/restart.sh permet de redémarrer les containers docker arrétés.
+Ce projet fourni également les bases de données des sites mynrista, et erdline, qui sont des 
+projets réalisés sur mon temps libre, que j'utilise en portfolio. Cela sont des sites portfolios,
+donc il n'y a pas d'informations sensibles.
 
-Le serveur PostgreSQL actuellement proposé fonctionne sans cryptage SSL lors des communications
-réseaux. Dans le cas d'une politique de sécurité forte, il s'agirait d'un premier point à 
-considérer. Pour le reste, au niveau sécurité, le déploiement proposé permet de gérer la gestion 
-du mot de passe en serveur, en indiquant celui-ci lors du 1er démarrage de la base de donnée. Le
-mot de passe ne pourra ainsi pas être obtenu, même en disposant du code source du programme.
+Enfin, ce projet fournit également des scripts bash à utiliser en production. Par exemple le script
+script/restart.sh permet de redémarrer les containers docker arrétés.
 
+# Backup
+
+Ce projet contient les bases de données de mes sites erdline, et mynrista. Et cela afin que un
+lead programmeur souhaitant évaluer mon niveau de développeur, dans le cadre d'un processus de 
+recrutement, ait quelque chose de concret à executer en localhost puis tester.
+
+Les bases de données sont sauvegardés à **backup/erdline_database.zip** et **backup/mynrista_database.zip".
+Afin de pouvoir être démarrés pour ce projet, vous allez devoir:
+
+1- Décompresser le fichier backup choisit.
+
+2- Renommer le fichier décompressé en "data". Car les commandes que je passe après vont utiliser un répertoire appellé "data".
+
+3- Utiliser une des commandes suivantes pour déployer via docker.
+
+Pour la base de donnée erdline, déployer celle-ci en port 5432. Celui-ci correspond au port auquel 
+l'API erdline se connectera.
+
+
+```sh
+docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
+```
+
+
+Pour la base de donnée mynrista, déployer celle-ci en port 5433. Celui-ci correspond au port auquel 
+l'API mynrista se connectera.
+
+```sh
+docker run --name cdatabase -d -p 5433:5432  --mount type=bind,src=./data,dst=/var/lib/postgresql database 
+```
+
+
+Pour les deux bases de données sauvegardés, les informations sont les suivantes. Il est à noter que
+le mot de passe de ces bases au départ est bien password. On est ici sur des sites de type portfolio,
+pas d'informations sensibles. Et si vous souhaitez modifier le mot de passe par un mot de passe plus
+sécurisé, j'ai indiqué dans le chapitre "Changement de mot de passe" comment vous pouvez réaliser cela.
+
+
+**Utilisateur base de donnée:** tora    
+**Mot de passe base de donnée:** password
+**Base de donnée:** default   
 
 
 # Déploiement 
 
-Pour démarrer la base de donnée. Connectez-vous à un serveur accessible en ssh. Vous pouvez aussi
-réaliser les commandes sur votre ordinateur habituel, afin de tester le lancement de la base de
-donnée.
+Pour démarrer une base de donnée vierge / vide. Connectez-vous à un serveur accessible en ssh. Vous 
+pouvez aussi réaliser les commandes sur votre ordinateur habituel, afin de tester le lancement de la 
+base de donnée.
 
 **Étape 1:**
 
@@ -64,6 +103,7 @@ docker run --name cdatabase -d -p 5432:5432  --mount type=bind,src=./data,dst=/v
 **Utilisateur base de donnée:** tora    
 **Mot de passe base de donnée:** -- Mot de passe choisit --    
 **Base de donnée:** default   
+
 
 # Commandes docker
 
@@ -112,13 +152,14 @@ fois à mes API.
 Ce script peut être lancé à intervalle régulier avec un CRON.
 
 
-# Changement de mot de passe.
+# Changement de mot de passe
 
 Parfois il vous sera nécessaire de changer le mot de passe pour acéder à la base de donnée.
 Les cas d'utilisation vont de récupérer une base de donnée localhost mais changer son mot de passe 
 par un mot de passe plus sécurisé, à programmer un changement de mot de passe tous les 3 mois.
 
 Changer le mot de passe d'un utilisateur sous PostgreSQL se fait avec la commande suivante.
+Changer un mot de passe, n'est possible que si vous êtes connecté en base de donnée avec des droits suffisants.
 
 ```sh
 ALTER ROLE tora WITH PASSWORD 'hu8jmn3'
